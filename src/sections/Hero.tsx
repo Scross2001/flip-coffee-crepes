@@ -7,7 +7,7 @@ export default function Hero() {
     <section id="top" className="relative isolate overflow-hidden">
       <div
         className="absolute inset-0 -z-10 bg-espresso bg-cover bg-center"
-        style={{ backgroundImage: `url(${asset('images/hero.jpg')})` }}
+        style={{ backgroundImage: `url(${asset('images/flip_outside.png')})` }}
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-espresso/70 to-espresso/90" />
       <div className="mx-auto max-w-6xl px-5 py-28 text-center text-cream md:py-40">

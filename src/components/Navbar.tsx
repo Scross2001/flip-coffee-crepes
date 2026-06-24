@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { doorDashUrl } from '../content/site';
+import { asset } from '../lib/asset';
 
 const navItems = [
   { href: '#menu', label: 'Menu' },
@@ -18,8 +19,12 @@ export default function Navbar() {
         className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3"
         aria-label="Main"
       >
-        <a href="#top" className="font-serif text-2xl font-bold text-espresso">
-          FLIP<span className="text-berry">.</span>
+        <a href="#top" aria-label="FLIP Coffee & Crepes home">
+          <img
+            src={asset('images/flip_icon.png')}
+            alt="FLIP Coffee & Crepes"
+            className="h-10 w-auto rounded-md"
+          />
         </a>
 
         <ul className="hidden items-center gap-7 md:flex">
