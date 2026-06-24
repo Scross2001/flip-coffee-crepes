@@ -1,5 +1,6 @@
 import Reveal from '../components/Reveal';
 import { site } from '../content/site';
+import { InstagramIcon, FacebookIcon } from '../components/SocialIcons';
 
 export default function Location() {
   // Highlight the current day in the hours list
@@ -56,12 +57,24 @@ export default function Location() {
               </div>
               <div>
                 <h3 className="text-sm font-semibold uppercase tracking-widest text-berry">Follow</h3>
-                <div className="mt-1 flex gap-4 text-lg text-espresso">
-                  <a className="hover:text-berry" href={site.links.instagram} target="_blank" rel="noopener noreferrer">
-                    Instagram
+                <div className="mt-2 flex gap-3">
+                  <a
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-espresso text-cream transition hover:bg-berry"
+                    href={site.links.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="FLIP on Instagram"
+                  >
+                    <InstagramIcon className="h-5 w-5" />
                   </a>
-                  <a className="hover:text-berry" href={site.links.facebook} target="_blank" rel="noopener noreferrer">
-                    Facebook
+                  <a
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-espresso text-cream transition hover:bg-berry"
+                    href={site.links.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="FLIP on Facebook"
+                  >
+                    <FacebookIcon className="h-5 w-5" />
                   </a>
                 </div>
               </div>

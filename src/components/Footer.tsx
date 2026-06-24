@@ -1,4 +1,5 @@
 import { site, doorDashUrl } from '../content/site';
+import { InstagramIcon, FacebookIcon } from './SocialIcons';
 
 export default function Footer() {
   return (
@@ -28,13 +29,13 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a className="hover:text-berry" href={site.links.instagram} target="_blank" rel="noopener noreferrer">
-                Instagram
+              <a className="inline-flex items-center gap-2 hover:text-berry" href={site.links.instagram} target="_blank" rel="noopener noreferrer">
+                <InstagramIcon className="h-5 w-5" /> Instagram
               </a>
             </li>
             <li>
-              <a className="hover:text-berry" href={site.links.facebook} target="_blank" rel="noopener noreferrer">
-                Facebook
+              <a className="inline-flex items-center gap-2 hover:text-berry" href={site.links.facebook} target="_blank" rel="noopener noreferrer">
+                <FacebookIcon className="h-5 w-5" /> Facebook
               </a>
             </li>
             <li>
