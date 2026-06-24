@@ -1,21 +1,17 @@
-import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import { site } from '../content/site';
 import { asset } from '../lib/asset';
 
-// Drop images into public/images/gallery and list the filenames here,
-// or swap this grid for an official Instagram embed widget.
+// Drop images into public/images/gallery and list the filenames here.
 const photos = ['gallery/1.jpg', 'gallery/2.jpg', 'gallery/3.jpg', 'gallery/4.jpg', 'gallery/5.jpg', 'gallery/6.jpg'];
 
 export default function Gallery() {
   return (
-    <>
-      <Seo title="Gallery" description="Crepes, coffee, and good mornings at FLIP in Granby, CT." />
-
-      <section className="section">
+    <section id="gallery" className="anchor">
+      <div className="section">
         <Reveal className="text-center">
           <p className="eyebrow">@flip.granby</p>
-          <h1 className="text-4xl font-bold text-espresso md:text-5xl">From the gram</h1>
+          <h2 className="text-4xl font-bold text-espresso md:text-5xl">From the gram</h2>
           <p className="mx-auto mt-3 max-w-xl text-charcoal/70">
             Behind-the-scenes, fresh drops, and your tagged photos.
           </p>
@@ -41,7 +37,7 @@ export default function Gallery() {
             Follow on Instagram
           </a>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

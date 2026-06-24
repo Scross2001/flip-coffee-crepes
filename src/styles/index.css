@@ -37,6 +37,10 @@
   .section {
     @apply mx-auto max-w-6xl px-5 py-16 md:py-24;
   }
+  /* Offset anchored sections so the sticky navbar doesn't cover the heading */
+  .anchor {
+    scroll-margin-top: 5rem;
+  }
   .eyebrow {
     @apply mb-2 text-sm font-semibold uppercase tracking-widest text-berry;
   }

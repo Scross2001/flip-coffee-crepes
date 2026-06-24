@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { site, doorDashUrl } from '../content/site';
 
 export default function Footer() {
@@ -39,9 +38,9 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <Link className="hover:text-berry" to="/contact">
+              <a className="hover:text-berry" href="#contact">
                 Contact us
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

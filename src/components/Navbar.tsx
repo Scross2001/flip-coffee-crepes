@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import { doorDashUrl } from '../content/site';
 
 const navItems = [
-  { to: '/menu', label: 'Menu' },
-  { to: '/about', label: 'About' },
-  { to: '/location', label: 'Location' },
-  { to: '/gallery', label: 'Gallery' },
-  { to: '/contact', label: 'Contact' },
+  { href: '#menu', label: 'Menu' },
+  { href: '#about', label: 'About' },
+  { href: '#location', label: 'Location' },
+  { href: '#gallery', label: 'Gallery' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
@@ -19,23 +18,19 @@ export default function Navbar() {
         className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3"
         aria-label="Main"
       >
-        <Link to="/" className="font-serif text-2xl font-bold text-espresso">
+        <a href="#top" className="font-serif text-2xl font-bold text-espresso">
           FLIP<span className="text-berry">.</span>
-        </Link>
+        </a>
 
         <ul className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
-            <li key={item.to}>
-              <NavLink
-                to={item.to}
-                className={({ isActive }) =>
-                  `text-sm font-semibold transition hover:text-berry ${
-                    isActive ? 'text-berry' : 'text-charcoal'
-                  }`
-                }
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="text-sm font-semibold text-charcoal transition hover:text-berry"
               >
                 {item.label}
-              </NavLink>
+              </a>
             </li>
           ))}
           <li>
@@ -65,14 +60,14 @@ export default function Navbar() {
       {open && (
         <ul className="flex flex-col gap-1 border-t border-cream/60 px-5 pb-4 md:hidden">
           {navItems.map((item) => (
-            <li key={item.to}>
-              <NavLink
-                to={item.to}
+            <li key={item.href}>
+              <a
+                href={item.href}
                 onClick={() => setOpen(false)}
                 className="block py-3 text-base font-semibold text-charcoal"
               >
                 {item.label}
-              </NavLink>
+              </a>
             </li>
           ))}
           <li className="pt-2">

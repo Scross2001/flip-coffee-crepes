@@ -1,32 +1,29 @@
-import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import { site } from '../content/site';
 
 export default function Location() {
   return (
-    <>
-      <Seo title="Location & Hours" description={`Visit FLIP at ${site.address}. Open ${site.hours}.`} />
-
-      <section className="section">
+    <section id="location" className="anchor bg-cream/40">
+      <div className="section">
         <Reveal className="text-center">
           <p className="eyebrow">Find us</p>
-          <h1 className="text-4xl font-bold text-espresso md:text-5xl">Location &amp; Hours</h1>
+          <h2 className="text-4xl font-bold text-espresso md:text-5xl">Location &amp; Hours</h2>
         </Reveal>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           <Reveal>
             <div className="space-y-6 rounded-2xl bg-white p-8 shadow-card">
               <div>
-                <h2 className="text-sm font-semibold uppercase tracking-widest text-berry">Address</h2>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-berry">Address</h3>
                 <p className="mt-1 text-lg text-espresso">{site.address}</p>
               </div>
               <div>
-                <h2 className="text-sm font-semibold uppercase tracking-widest text-berry">Hours</h2>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-berry">Hours</h3>
                 <p className="mt-1 text-lg text-espresso">{site.hours}</p>
               </div>
               {site.phone && (
                 <div>
-                  <h2 className="text-sm font-semibold uppercase tracking-widest text-berry">Phone</h2>
+                  <h3 className="text-sm font-semibold uppercase tracking-widest text-berry">Phone</h3>
                   <a className="mt-1 block text-lg text-espresso hover:text-berry" href={`tel:${site.phone}`}>
                     {site.phone}
                   </a>
@@ -56,7 +53,7 @@ export default function Location() {
             </div>
           </Reveal>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

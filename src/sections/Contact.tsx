@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import { site } from '../content/site';
 
@@ -43,14 +42,12 @@ export default function Contact() {
   };
 
   return (
-    <>
-      <Seo title="Contact" description="Get in touch with FLIP Coffee & Crepes and follow us on social." />
-
-      <section className="section">
+    <section id="contact" className="anchor bg-cream/40">
+      <div className="section">
         <div className="grid gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow">Say hello</p>
-            <h1 className="text-4xl font-bold text-espresso md:text-5xl">Contact us</h1>
+            <h2 className="text-4xl font-bold text-espresso md:text-5xl">Contact us</h2>
             <p className="mt-4 text-charcoal/70">
               Questions, catering, or just want to say hi? Drop us a line and we&apos;ll get back to you.
             </p>
@@ -145,7 +142,7 @@ export default function Contact() {
             </form>
           </Reveal>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
