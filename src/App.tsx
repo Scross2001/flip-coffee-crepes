@@ -6,7 +6,6 @@ import MenuSection from './sections/MenuSection';
 import About from './sections/About';
 import Location from './sections/Location';
 import Gallery from './sections/Gallery';
-import Contact from './sections/Contact';
 import { site } from './content/site';
 
 export default function App() {
@@ -32,7 +31,6 @@ export default function App() {
         <About />
         <Location />
         <Gallery />
-        <Contact />
       </main>
 
       <Footer />

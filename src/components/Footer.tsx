@@ -38,8 +38,8 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a className="hover:text-berry" href="#contact">
-                Contact us
+              <a className="hover:text-berry" href="#location">
+                Find us
               </a>
             </li>
           </ul>

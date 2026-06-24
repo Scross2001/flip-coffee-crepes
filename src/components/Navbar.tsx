@@ -5,9 +5,8 @@ import { asset } from '../lib/asset';
 const navItems = [
   { href: '#menu', label: 'Menu' },
   { href: '#about', label: 'About' },
-  { href: '#location', label: 'Location' },
+  { href: '#location', label: 'Find Us' },
   { href: '#gallery', label: 'Gallery' },
-  { href: '#contact', label: 'Contact' },
 ];
 
 export default function Navbar() {

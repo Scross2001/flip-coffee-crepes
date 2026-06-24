@@ -48,6 +48,23 @@ export default function Location() {
                   </a>
                 </div>
               )}
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-berry">Email</h3>
+                <a className="mt-1 block text-lg text-espresso hover:text-berry" href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-berry">Follow</h3>
+                <div className="mt-1 flex gap-4 text-lg text-espresso">
+                  <a className="hover:text-berry" href={site.links.instagram} target="_blank" rel="noopener noreferrer">
+                    Instagram
+                  </a>
+                  <a className="hover:text-berry" href={site.links.facebook} target="_blank" rel="noopener noreferrer">
+                    Facebook
+                  </a>
+                </div>
+              </div>
               <div className="flex flex-wrap gap-3 pt-2">
                 <a className="btn-primary" href={site.links.maps} target="_blank" rel="noopener noreferrer">
                   Get Directions
