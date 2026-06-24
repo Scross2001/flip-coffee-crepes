@@ -3,12 +3,12 @@ export const site = {
   name: 'FLIP Coffee & Crepes',
   tagline: 'Premium French Crepes & Specialty Coffee',
   blurb:
-    'Fresh, artisanal crepes — sweet and savory — paired with specialty coffee in the heart of Granby, CT.',
+    'A family-owned café in Granby, CT — rich espresso, signature matcha, and sweet & savory crêpes made fresh to order.',
   rating: 4.0,
   address: '7 Mill Pond Dr, Granby, CT 06035',
   hours: '6:00 AM – 7:40 PM Daily',
-  phone: '', // add when available, e.g. '(860) 555-0123'
-  email: 'hello@flipgranby.com', // update to the real inbox
+  phone: '(860) 431-4091',
+  email: 'flipgranby@yahoo.com',
   links: {
     doordash:
       'https://www.doordash.com/store/flip-coffee-&-crepes-granby-44140819/108474346/',
