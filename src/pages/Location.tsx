@@ -1,0 +1,62 @@
+import Seo from '../components/Seo';
+import Reveal from '../components/Reveal';
+import { site } from '../content/site';
+
+export default function Location() {
+  return (
+    <>
+      <Seo title="Location & Hours" description={`Visit FLIP at ${site.address}. Open ${site.hours}.`} />
+
+      <section className="section">
+        <Reveal className="text-center">
+          <p className="eyebrow">Find us</p>
+          <h1 className="text-4xl font-bold text-espresso md:text-5xl">Location &amp; Hours</h1>
+        </Reveal>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          <Reveal>
+            <div className="space-y-6 rounded-2xl bg-white p-8 shadow-card">
+              <div>
+                <h2 className="text-sm font-semibold uppercase tracking-widest text-berry">Address</h2>
+                <p className="mt-1 text-lg text-espresso">{site.address}</p>
+              </div>
+              <div>
+                <h2 className="text-sm font-semibold uppercase tracking-widest text-berry">Hours</h2>
+                <p className="mt-1 text-lg text-espresso">{site.hours}</p>
+              </div>
+              {site.phone && (
+                <div>
+                  <h2 className="text-sm font-semibold uppercase tracking-widest text-berry">Phone</h2>
+                  <a className="mt-1 block text-lg text-espresso hover:text-berry" href={`tel:${site.phone}`}>
+                    {site.phone}
+                  </a>
+                </div>
+              )}
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a className="btn-primary" href={site.links.maps} target="_blank" rel="noopener noreferrer">
+                  Get Directions
+                </a>
+                <a className="btn-outline" href={site.links.doordash} target="_blank" rel="noopener noreferrer">
+                  Order Delivery
+                </a>
+              </div>
+              <p className="text-sm text-charcoal/60">Free parking available on site.</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="h-full min-h-[360px] overflow-hidden rounded-2xl shadow-card">
+              <iframe
+                title="Map to FLIP Coffee & Crepes"
+                className="h-full min-h-[360px] w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=7%20Mill%20Pond%20Dr%2C%20Granby%2C%20CT%2006035&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
+  );
+}
