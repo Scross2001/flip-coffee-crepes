@@ -6,7 +6,16 @@ export const site = {
     'A family-owned café in Granby, CT — rich espresso, signature matcha, and sweet & savory crêpes made fresh to order.',
   rating: 4.0,
   address: '7 Mill Pond Dr, Granby, CT 06035',
-  hours: '6:00 AM – 7:40 PM Daily',
+  hours: '6:00 AM – 8:00 PM Daily',
+  hoursByDay: [
+    { day: 'Monday', time: '6:00 AM – 8:00 PM' },
+    { day: 'Tuesday', time: '6:00 AM – 8:00 PM' },
+    { day: 'Wednesday', time: '6:00 AM – 8:00 PM' },
+    { day: 'Thursday', time: '6:00 AM – 8:00 PM' },
+    { day: 'Friday', time: '6:00 AM – 8:00 PM' },
+    { day: 'Saturday', time: '6:00 AM – 8:00 PM' },
+    { day: 'Sunday', time: '6:00 AM – 8:00 PM' },
+  ],
   phone: '(860) 431-4091',
   email: 'flipgranby@yahoo.com',
   links: {

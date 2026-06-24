@@ -2,6 +2,9 @@ import Reveal from '../components/Reveal';
 import { site } from '../content/site';
 
 export default function Location() {
+  // Highlight the current day in the hours list
+  const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+
   return (
     <section id="location" className="anchor bg-cream/40">
       <div className="section">
@@ -19,7 +22,23 @@ export default function Location() {
               </div>
               <div>
                 <h3 className="text-sm font-semibold uppercase tracking-widest text-berry">Hours</h3>
-                <p className="mt-1 text-lg text-espresso">{site.hours}</p>
+                <p className="mt-1 text-lg text-espresso">Open daily · 6:00 AM – 8:00 PM</p>
+                <ul className="mt-3 divide-y divide-cream text-sm">
+                  {site.hoursByDay.map(({ day, time }) => (
+                    <li
+                      key={day}
+                      className={`flex justify-between py-1.5 ${
+                        day === today ? 'font-semibold text-espresso' : 'text-charcoal/70'
+                      }`}
+                    >
+                      <span>
+                        {day}
+                        {day === today && <span className="ml-2 text-xs text-berry">Today</span>}
+                      </span>
+                      <span>{time}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
               {site.phone && (
                 <div>

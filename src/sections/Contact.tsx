@@ -1,53 +1,65 @@
 import Reveal from '../components/Reveal';
-import { site } from '../content/site';
+import { site, doorDashUrl } from '../content/site';
 
 export default function Contact() {
   return (
-    <section id="contact" className="anchor bg-cream/40">
+    <section id="contact" className="anchor bg-espresso text-cream">
       <div className="section">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Say hello</p>
-          <h2 className="text-4xl font-bold text-espresso md:text-5xl">Get in touch</h2>
-          <p className="mt-4 text-charcoal/70">
-            Questions, catering, or just want to say hi? Reach us directly — we&apos;d love to hear from you.
-          </p>
-        </Reveal>
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-widest text-gold">Say hello</p>
+            <h2 className="mt-2 text-4xl font-bold md:text-5xl">Come flip your day with us</h2>
+            <p className="mt-4 max-w-md text-cream/80">
+              Questions, catering, or just want to say hi? Reach us directly — or stop by and order
+              fresh, made-to-order crêpes and coffee.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a className="btn-accent" href={doorDashUrl('contact')} target="_blank" rel="noopener noreferrer">
+                Order Now
+              </a>
+              <a
+                className="btn-outline border-cream text-cream hover:bg-cream hover:text-espresso"
+                href={site.links.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Directions
+              </a>
+            </div>
+          </Reveal>
 
-        <Reveal className="mx-auto mt-10 max-w-md rounded-2xl bg-white p-8 text-center shadow-card">
-          <dl className="space-y-5">
-            <div>
-              <dt className="text-sm font-semibold uppercase tracking-widest text-berry">Email</dt>
-              <dd className="mt-1">
-                <a className="text-lg text-espresso hover:text-berry" href={`mailto:${site.email}`}>
+          <Reveal delay={0.1}>
+            <ul className="space-y-5 md:border-l md:border-cream/20 md:pl-12">
+              <li>
+                <span className="text-xs font-semibold uppercase tracking-widest text-gold">Email</span>
+                <a className="mt-1 block text-lg hover:text-berry" href={`mailto:${site.email}`}>
                   {site.email}
                 </a>
-              </dd>
-            </div>
-            {site.phone && (
-              <div>
-                <dt className="text-sm font-semibold uppercase tracking-widest text-berry">Phone</dt>
-                <dd className="mt-1">
-                  <a className="text-lg text-espresso hover:text-berry" href={`tel:${site.phone}`}>
-                    {site.phone}
+              </li>
+              <li>
+                <span className="text-xs font-semibold uppercase tracking-widest text-gold">Phone</span>
+                <a className="mt-1 block text-lg hover:text-berry" href={`tel:${site.phone}`}>
+                  {site.phone}
+                </a>
+              </li>
+              <li>
+                <span className="text-xs font-semibold uppercase tracking-widest text-gold">Visit</span>
+                <span className="mt-1 block text-lg">{site.address}</span>
+              </li>
+              <li>
+                <span className="text-xs font-semibold uppercase tracking-widest text-gold">Follow</span>
+                <span className="mt-2 flex gap-4 text-lg">
+                  <a className="hover:text-berry" href={site.links.instagram} target="_blank" rel="noopener noreferrer">
+                    Instagram
                   </a>
-                </dd>
-              </div>
-            )}
-            <div>
-              <dt className="text-sm font-semibold uppercase tracking-widest text-berry">Visit</dt>
-              <dd className="mt-1 text-lg text-espresso">{site.address}</dd>
-            </div>
-          </dl>
-
-          <div className="mt-7 flex justify-center gap-3">
-            <a className="btn-outline !px-5 !py-2.5 text-sm" href={site.links.instagram} target="_blank" rel="noopener noreferrer">
-              Instagram
-            </a>
-            <a className="btn-outline !px-5 !py-2.5 text-sm" href={site.links.facebook} target="_blank" rel="noopener noreferrer">
-              Facebook
-            </a>
-          </div>
-        </Reveal>
+                  <a className="hover:text-berry" href={site.links.facebook} target="_blank" rel="noopener noreferrer">
+                    Facebook
+                  </a>
+                </span>
+              </li>
+            </ul>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
