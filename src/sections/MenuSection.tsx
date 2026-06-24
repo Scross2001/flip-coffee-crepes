@@ -4,9 +4,9 @@ import { asset } from '../lib/asset';
 
 // Priority menu boards — shown first, loaded eagerly.
 const mainMenus = [
+  { file: 'flip_main_coffee_and_matcha.png', label: 'Coffee & Matcha menu' },
   { file: 'flips_main_sweet_crepes.png', label: 'Sweet Crepes menu' },
   { file: 'flip_main_savory_crepes.png', label: 'Savory Crepes menu' },
-  { file: 'flip_main_coffee_and_matcha.png', label: 'Coffee & Matcha menu' },
 ];
 
 // Secondary boards — revealed further down the page.

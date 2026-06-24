@@ -1,9 +1,13 @@
 import Reveal from '../components/Reveal';
 import { site } from '../content/site';
-import { asset } from '../lib/asset';
 
-// Drop images into public/images/gallery and list the filenames here.
-const photos = ['gallery/1.jpg', 'gallery/2.jpg', 'gallery/3.jpg', 'gallery/4.jpg', 'gallery/5.jpg', 'gallery/6.jpg'];
+// ── Instagram feed (free, works on GitHub Pages) ───────────────────────────
+// Easiest option: SnapWidget (https://snapwidget.com) free plan.
+//   1. Sign up (free), connect @flip.granby, create a "Grid" widget.
+//   2. It gives you an embed URL like https://snapwidget.com/embed/1234567
+//   3. Paste just the embed URL below. That's it — it auto-updates.
+// Leave empty to show the "Follow on Instagram" fallback instead.
+const SNAPWIDGET_EMBED_URL = '';
 
 export default function Gallery() {
   return (
@@ -17,20 +21,24 @@ export default function Gallery() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3">
-          {photos.map((src, i) => (
-            <Reveal key={src} delay={(i % 3) * 0.06}>
-              <div className="aspect-square overflow-hidden rounded-xl bg-cream">
-                <img
-                  src={asset(`images/${src}`)}
-                  alt="FLIP Coffee & Crepes"
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                />
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {SNAPWIDGET_EMBED_URL ? (
+          <Reveal className="mt-12 overflow-hidden rounded-2xl">
+            <iframe
+              src={SNAPWIDGET_EMBED_URL}
+              title="FLIP Instagram feed"
+              className="h-[520px] w-full border-0"
+              scrolling="no"
+              loading="lazy"
+              allowTransparency
+            />
+          </Reveal>
+        ) : (
+          <Reveal className="mt-12 rounded-2xl bg-cream/50 p-10 text-center">
+            <p className="text-charcoal/70">
+              Our latest posts live on Instagram. Tap below to see fresh crepes, coffee, and more.
+            </p>
+          </Reveal>
+        )}
 
         <div className="mt-10 text-center">
           <a className="btn-accent" href={site.links.instagram} target="_blank" rel="noopener noreferrer">
