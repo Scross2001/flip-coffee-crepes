@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import Reveal from '../components/Reveal';
+import Lightbox from '../components/Lightbox';
 import { doorDashUrl } from '../content/site';
 import { asset } from '../lib/asset';
 
@@ -18,27 +20,28 @@ const moreMenus = [
   { file: 'flip_lemonades.png', label: 'Lemonades menu' },
 ];
 
-function MenuBoard({ file, label, eager }: { file: string; label: string; eager?: boolean }) {
-  const src = asset(`images/menu/${file}`);
-  return (
-    <a
-      href={src}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block overflow-hidden rounded-2xl bg-white shadow-card"
-      aria-label={`View ${label} full size`}
-    >
-      <img
-        src={src}
-        alt={label}
-        loading={eager ? 'eager' : 'lazy'}
-        className="w-full transition duration-500 hover:scale-[1.02]"
-      />
-    </a>
-  );
-}
-
 export default function MenuSection() {
+  const [active, setActive] = useState<{ src: string; alt: string } | null>(null);
+
+  const Board = ({ file, label, eager }: { file: string; label: string; eager?: boolean }) => {
+    const src = asset(`images/menu/${file}`);
+    return (
+      <button
+        type="button"
+        onClick={() => setActive({ src, alt: label })}
+        className="block w-full cursor-zoom-in overflow-hidden rounded-2xl bg-white shadow-card"
+        aria-label={`View ${label} larger`}
+      >
+        <img
+          src={src}
+          alt={label}
+          loading={eager ? 'eager' : 'lazy'}
+          className="w-full transition duration-500 hover:scale-[1.02]"
+        />
+      </button>
+    );
+  };
+
   return (
     <section id="menu" className="anchor bg-cream/40">
       <div className="section">
@@ -46,7 +49,7 @@ export default function MenuSection() {
           <p className="eyebrow">Our menu</p>
           <h2 className="text-4xl font-bold text-espresso md:text-5xl">Crepes, Coffee &amp; More</h2>
           <p className="mx-auto mt-3 max-w-xl text-charcoal/70">
-            Tap any menu to view it full size, or order online for the latest availability.
+            Tap any menu to view it larger and zoom in, or order online for the latest availability.
           </p>
         </Reveal>
 
@@ -54,7 +57,7 @@ export default function MenuSection() {
         <div className="mt-12 space-y-6">
           {mainMenus.map((m, i) => (
             <Reveal key={m.file} delay={i * 0.06}>
-              <MenuBoard {...m} eager={i === 0} />
+              <Board {...m} eager={i === 0} />
             </Reveal>
           ))}
         </div>
@@ -66,7 +69,7 @@ export default function MenuSection() {
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {moreMenus.map((m, i) => (
             <Reveal key={m.file} delay={(i % 2) * 0.06}>
-              <MenuBoard {...m} />
+              <Board {...m} />
             </Reveal>
           ))}
         </div>
@@ -77,6 +80,8 @@ export default function MenuSection() {
           </a>
         </div>
       </div>
+
+      {active && <Lightbox src={active.src} alt={active.alt} onClose={() => setActive(null)} />}
     </section>
   );
 }
