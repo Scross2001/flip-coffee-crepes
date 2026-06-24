@@ -1,15 +1,38 @@
+import { useEffect } from 'react';
 import Reveal from '../components/Reveal';
 import { site } from '../content/site';
 
-// ── Instagram feed (free, works on GitHub Pages) ───────────────────────────
-// Easiest option: SnapWidget (https://snapwidget.com) free plan.
-//   1. Sign up (free), connect @flip.granby, create a "Grid" widget.
-//   2. It gives you an embed URL like https://snapwidget.com/embed/1234567
-//   3. Paste just the embed URL below. That's it — it auto-updates.
-// Leave empty to show the "Follow on Instagram" fallback instead.
-const SNAPWIDGET_EMBED_URL = '';
+// ── Instagram post embeds (free, no account/login needed) ──────────────────
+// Works for ANY public post — you don't need to own the account.
+// Paste the post URLs from @flip.granby below. To get one: open the post on
+// instagram.com, click the "…" menu → "Copy link". Add as many as you like.
+const POST_URLS: string[] = [
+  // 'https://www.instagram.com/p/XXXXXXXXXXX/',
+  // 'https://www.instagram.com/p/YYYYYYYYYYY/',
+];
+
+declare global {
+  interface Window {
+    instgrm?: { Embeds: { process: () => void } };
+  }
+}
 
 export default function Gallery() {
+  useEffect(() => {
+    if (POST_URLS.length === 0) return;
+    const SRC = 'https://www.instagram.com/embed.js';
+    const existing = document.querySelector<HTMLScriptElement>(`script[src="${SRC}"]`);
+    if (existing) {
+      window.instgrm?.Embeds.process();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = SRC;
+    script.async = true;
+    script.onload = () => window.instgrm?.Embeds.process();
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <section id="gallery" className="anchor">
       <div className="section">
@@ -21,17 +44,17 @@ export default function Gallery() {
           </p>
         </Reveal>
 
-        {SNAPWIDGET_EMBED_URL ? (
-          <Reveal className="mt-12 overflow-hidden rounded-2xl">
-            <iframe
-              src={SNAPWIDGET_EMBED_URL}
-              title="FLIP Instagram feed"
-              className="h-[520px] w-full border-0"
-              scrolling="no"
-              loading="lazy"
-              allowTransparency
-            />
-          </Reveal>
+        {POST_URLS.length > 0 ? (
+          <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {POST_URLS.map((url) => (
+              <blockquote
+                key={url}
+                className="instagram-media mx-auto !min-w-0"
+                data-instgrm-permalink={url}
+                data-instgrm-version="14"
+              />
+            ))}
+          </div>
         ) : (
           <Reveal className="mt-12 rounded-2xl bg-cream/50 p-10 text-center">
             <p className="text-charcoal/70">
