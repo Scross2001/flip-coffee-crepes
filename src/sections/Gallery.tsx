@@ -7,8 +7,12 @@ import { site } from '../content/site';
 // Paste the post URLs from @flip.granby below. To get one: open the post on
 // instagram.com, click the "…" menu → "Copy link". Add as many as you like.
 const POST_URLS: string[] = [
-  // 'https://www.instagram.com/p/XXXXXXXXXXX/',
-  // 'https://www.instagram.com/p/YYYYYYYYYYY/',
+  'https://www.instagram.com/p/DZyJ0SjtuXi/',
+  'https://www.instagram.com/p/DZlSM-3Nsbt/',
+  'https://www.instagram.com/p/DZbMNguIM3q/',
+  'https://www.instagram.com/p/DY0NqlFt7rM/',
+  'https://www.instagram.com/p/DYdMNIpNZbb/',
+  'https://www.instagram.com/p/DXcStXhDbbk/',
 ];
 
 declare global {
